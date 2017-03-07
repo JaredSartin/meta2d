@@ -197,7 +197,7 @@ meta.class("Resource.Manager",
 	 */
 	addToLoad: function(resource)
 	{
-		if(!this.loading) {
+		if(!this.loading && !this.silentLoad) {
 			this.loading = true;
 			this.onLoadingStart.emit(this, Resource.Event.LOADING_START);
 		}
