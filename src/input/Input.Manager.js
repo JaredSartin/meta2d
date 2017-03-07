@@ -16,6 +16,7 @@ meta.class("Input.Manager",
 		this.keys = new Array(numTotalKeys);
 		this.touches = [];
 		this.pressed = {};
+		this.trapTouch = true;
 
 		this.keybind = {};
 
@@ -306,7 +307,7 @@ meta.class("Input.Manager",
 	 */
 	handleMouseMove: function(event)
 	{
-		if(document.activeElement === document.body) {
+		if(document.activeElement === document.body && this.trapTouch) {
 			event.preventDefault();
 		}
 
@@ -395,7 +396,7 @@ meta.class("Input.Manager",
 	 */
 	handleTouchDown: function(event)
 	{
-		if(document.activeElement === document.body) {		
+		if(document.activeElement === document.body && this.trapTouch) {		
 			event.preventDefault();
 		}
 
@@ -462,7 +463,7 @@ meta.class("Input.Manager",
 	 */
 	handleTouchUp: function(event)
 	{
-		if(document.activeElement === document.body) {		
+		if(document.activeElement === document.body && this.trapTouch) {		
 			event.preventDefault();
 		}
 
@@ -539,7 +540,7 @@ meta.class("Input.Manager",
 	 */
 	handleTouchMove: function(event)
 	{
-		if(document.activeElement === document.body) {		
+		if(document.activeElement === document.body && this.trapTouch) {		
 			event.preventDefault();
 		}
 
